@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+
+       default-lazy-init="true"
+>
+
+    <bean id="view" class="view.ViewBurger">
+        <property name="bigBurger" ref="bigBurger"/>
+        <property name="mediumBurger" ref="mediumBurger"/>
+        <property name="littleBurger" ref="littleBurger"/>
+        <property name="cheese" ref="cheese"/>
+        <property name="meat" ref="meat"/>
+        <property name="peppers" ref="peppers"/>
+        <property name="potatoes" ref="potatoes"/>
+        <property name="salat" ref="salat"/>
+        <property name="tomato" ref="tomato"/>
+    </bean>
+
+    <bean id="bigBurger" class="burgers.BigBurger">
+        <constructor-arg>
+            <list>
+                <ref bean="meat"/>
+                <ref bean="tomato"/>
+                <ref bean="salat"/>
+                <ref bean="cheese"/>
+            </list>
+        </constructor-arg>
+    </bean>
+    <bean id="mediumBurger" class="burgers.MediumBurger">
+        <constructor-arg>
+            <list>
+                <ref bean="meat"/>
+                <ref bean="peppers"/>
+                <ref bean="cheese"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="littleBurger" class="burgers.LittleBurger">
+       <constructor-arg>
+           <list>
+               <ref bean="tomato"/>
+               <ref bean="meat"/>
+           </list>
+       </constructor-arg>
+    </bean>
+
+    <bean id="salat" class="supplements.Salat"/>
+    <bean id="meat" class="supplements.Meat"/>
+    <bean id="peppers" class="supplements.Peppers"/>
+    <bean id="potatoes" class="supplements.Potatoes"/>
+    <bean id="cheese" class="supplements.Cheese"/>
+    <bean id="tomato" class="supplements.Tomato"/>
+
+</beans>
